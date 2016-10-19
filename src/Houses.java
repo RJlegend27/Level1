@@ -45,13 +45,51 @@ public class Houses {
 		Tortoise.setPenColor(Color.ORANGE);
 		Tortoise.turn(-90);
 		Tortoise.move(90);
-		Tortoise.turn(-20);
+		Tortoise.turn(20);
 		Tortoise.move(20);
-		Tortoise.turn(-140);
+		Tortoise.turn(140);
 		Tortoise.move(20);
-		Tortoise.turn(-20);
+		Tortoise.turn(20);
 		Tortoise.move(90);
 		Tortoise.turn(-90);
+	}
+	static void arch(){
+		Tortoise.setPenColor(Color.PINK);
+		Tortoise.turn(-90);
+		for(int i = 0; i<180; i++){
+			Tortoise.move(1);
+			Tortoise.turn(1);
+		}
+		Tortoise.setSpeed(10);
+		Tortoise.turn(90);
+		Tortoise.move(115);
+		Tortoise.turn(180);
+		Tortoise.turn(-65);
+		Tortoise.move(45);
+		Tortoise.turn(180);
+		Tortoise.turn(-50);
+		Tortoise.move(45);
+		Tortoise.turn(180);
+		Tortoise.turn(45);
+		Tortoise.move(60);
+		Tortoise.turn(180);
+		Tortoise.turn(-45);
+		Tortoise.move(63);
+		Tortoise.turn(180);
+		Tortoise.turn(45);
+		Tortoise.move(45);
+		Tortoise.turn(180);
+		Tortoise.turn(-45);
+		Tortoise.move(45);
+		Tortoise.turn(295);
+		//Tortoise.turn(180);
+		//Tortoise.turn(45);
+		//Tortoise.move(45);
+		
+		
+		//Tortoise.turn(180);
+		//Tortoise.move(115);
+		
 	}
 
 	static void grass() {
@@ -74,6 +112,9 @@ public class Houses {
 			smallbuliding();
 			grass();
 			invertbuilding();
+			grass();
+			arch();
+			grass();
 			Tortoise.turn(-90);
 		}
 	}
