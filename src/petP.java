@@ -1,19 +1,19 @@
 
-	public class Platypus {
+
+	public class petP {
 		private String name;
-		Platypus(String x){
-			name = x;
+		petP(String name){
+			this.name = name;
 		}
-		
 		void sayHi(){
 			System.out.println("The platypus " + name + " is smarter than your average platypus.");
 		}
 		
 		public static void main(String[] args) {
 			//1. Make an instance of your new pet platypus
-			Platypus plat = new Platypus("plate");
-			Platypus platt = new Platypus("platte");
-			Platypus plattt = new Platypus("plattte");
+			petP plat = new petP("K");
+			petP platt = new petP("L");
+			petP plattt = new petP("P");
 			//2. Call the sayHi method
 			plat.sayHi();
 			platt.sayHi();
