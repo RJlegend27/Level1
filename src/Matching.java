@@ -24,20 +24,20 @@ public class Matching {
 		no.equals(square);
 		panel.add(yes);
 		yes.equals(star);
-		star.addActionListener(this);
-		square.addActionListener(this);
-		no.addActionListener(this);
-		yes.addActionListener(this);
-		if(e.getSource() instanceof JButton){
-			if(counter == 1%)
-					text1 = ((JButton)e.getSource())getText());
-			e.getSource.show(true);
-			)
-else if 1 // conter even)
-text2 = show(true);
+	//	star.addActionListener(this);
+		//square.addActionListener(this);
+		//no.addActionListener(this);
+		//es.addActionListener(this);
+	//	if(e.getSource() instanceof JButton){
+		//	if(counter == 1%)
+			//		text1 = ((JButton)e.getSource())getText());
+			//e.getSource.show(true);
+			//)
+//else if 1 // conter even)
+//text2 = show(true);
 //check
-popup = it wrong()
+//popup = it wrong()
 		}
 
 	}
-}
+//}
