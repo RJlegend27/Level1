@@ -13,9 +13,21 @@ import jdk.nashorn.internal.runtime.regexp.JoniRegExp.Factory;
 import javax.swing.JLabel;
 
 public class View {
+void viewSetLabel1(int input1){
+	label1.setText(input1 + "");
+}
+void viewSetLabel2(String input2){
+	label2.setText(input2 + "");
+}
+void viewSetLabel3(int input3){
+	label3.setText(input3 + "");
+}
+void viewSetLabel(int output){
+	label4.setText(output + "");
+}
 JFrame frame = new JFrame();
 JPanel panel = new JPanel();
-JPanel displayPanel = new JPanel();
+JLabel label = new JLabel();
 
 JButton button = new JButton("1");
 JButton button1 = new JButton("2");
@@ -33,18 +45,48 @@ JButton button11 = new JButton("C");
 JButton button12 = new JButton("0");
 JButton button13 = new JButton("+");
 JButton button14 = new JButton("=");
+JLabel label1 = new JLabel("");
+JLabel label2 = new JLabel("");
+JLabel label3 = new JLabel("");
+JLabel label4 = new JLabel("");
 
-JLabel label = new JLabel("display");
+void addListeners (){
+	button.addActionListener(new Controller());
+	button1.addActionListener(new Controller());
+	button2.addActionListener(new Controller());
+	button3.addActionListener(new Controller());
+	button4.addActionListener(new Controller());
+	button5.addActionListener(new Controller());
+	button6.addActionListener(new Controller());
+	button7.addActionListener(new Controller());
+	button8.addActionListener(new Controller());
+	button9.addActionListener(new Controller());
+	button0.addActionListener(new Controller());
+	button10.addActionListener(new Controller());
+	button11.addActionListener(new Controller());
+	button12.addActionListener(new Controller());
+	button13.addActionListener(new Controller());
+	button14.addActionListener(new Controller());
+	
+}
+
+
 
 public View(){
 	frame.setVisible(true);
 	frame.setSize(500, 500);
-	frame.add(displayPanel);
+	frame.add(label);
 	frame.add(panel);
-	displayPanel.add(label);
-	label.setBorder(BorderFactory.createLineBorder(Color.MAGENTA));
-	frame.setLayout(new GridLayout(2,1));
-	panel.setLayout(new GridLayout(4,5)); 
+	label1.setBorder(BorderFactory.createLineBorder(Color.CYAN));
+	label2.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+	label3.setBorder(BorderFactory.createLineBorder(Color.CYAN));
+	label4.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+	panel.add(label1);
+	panel.add(label2);
+	panel.add(label3);
+	panel.add(label4);
+	//frame.setLayout(new GridLayout(2,1));
+	panel.setLayout(new GridLayout(5,4)); 
 	panel.add(button);
 
 	panel.add(button1);
