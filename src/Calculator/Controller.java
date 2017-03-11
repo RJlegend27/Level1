@@ -3,13 +3,19 @@ package Calculator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 public class Controller implements ActionListener{
 
-Model model;
-View view;
-	public Controller(View calview, Model calmodel) {
+static Model model;
+static View view;
+	public Controller(View view, Model model) {
+		this.view = view;
+		this.model = model;
+		
+		
 		// TODO Auto-generated constructor stub
-		calview.addListeners();
+		view.addListeners();
 	}
 	Controller(){
 		
@@ -17,7 +23,17 @@ View view;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("GET PRANKKKKKKEKDKEDEDEDEDDDD");
+		//System.out.println("GET PRANKKKKKKEKDKEDEDEDEDDDD");
+		JButton buttonPressed =(JButton)e.getSource();
+		System.out.println(buttonPressed.getText());
+		model.addNum(buttonPressed.getText());
+		model.getInputOne();
+		view.viewSetLabel1(model.getInputOne());
+		view.viewSetLabel2(model.getInputTwo());
+		view.viewSetLabel3(model.getInputThree());
+		//view.viewSetLabel(model.getInputoutput());
+		
 	}
-
+		
+		
 }
