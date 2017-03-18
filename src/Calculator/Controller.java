@@ -31,9 +31,10 @@ static View view;
 		view.viewSetLabel1(model.getInputOne());
 		view.viewSetLabel2(model.getInputTwo());
 		view.viewSetLabel3(model.getInputThree());
+		view.viewSetLabel(model.getOutput());
 		//view.viewSetLabel(model.getInputoutput());
 		
 	}
 		
-		
+		//clear
 }

@@ -58,7 +58,6 @@ void addListeners (){
 	button4.addActionListener(new Controller());
 	button5.addActionListener(new Controller());
 	button6.addActionListener(new Controller());
-	button7.addActionListener(new Controller());
 	button8.addActionListener(new Controller());
 	button9.addActionListener(new Controller());
 	button0.addActionListener(new Controller());

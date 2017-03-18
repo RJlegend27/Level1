@@ -2,9 +2,11 @@ package Calculator;
 
 public class Model {
 	String input1 = "";
-	String input2;
-	String input3;
-	String output;
+	String input2 = "";
+	String input3 = "";
+	String output = "";
+	boolean operatorPressed;
+	
 
 	String getInputOne() {
 		return input1;
@@ -39,7 +41,57 @@ public class Model {
 	}
 	
 	void addNum(String num){
-		input1=this.input1 + num;
-		System.out.println(input1);
+
+		if(num.equals("=")){
+		calculate();
 	}
-}
+		else if(num.equals("+")||num.equals("-")||(num.equals("X"))||(num.equals("/"))){
+			operatorPressed = true;
+			input2 = num;
+			
+		}else if(operatorPressed == true){
+			input3 = input3 + num;
+		}
+		
+		else{
+			operatorPressed = false;
+			input1 = input1 + num;
+			
+		}
+	if(num.equals("C")){
+		input1 = "";
+		input2 = "";
+		input3 = "";
+		output = "";
+		operatorPressed = false;
+		}	
+	}
+
+	private void calculate() {
+		int sandles = Integer.parseInt(input1);
+		int flipflops = Integer.parseInt(input3);
+		int crocs = 0;
+	//	if(input2.equals("+")){
+		//output = input1 + input3;
+		if(input2.equals("+")){
+			crocs = sandles + flipflops;
+		}
+		if(input2.equals("-")){
+			crocs = sandles - flipflops;
+		}
+		if(input2.equals("X")){
+			crocs = sandles * flipflops;
+		}
+		if(input2.equals("/")){
+			crocs = sandles / flipflops;
+		}
+		output = crocs + "";
+		System.out.println(output);
+		
+			
+		
+		}
+		}
+	
+	
+
