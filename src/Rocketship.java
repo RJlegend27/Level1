@@ -2,10 +2,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rocketship extends GameObject {
-	int x;
-	int y;
-	int width;
-	int height;
+//	int x;
+//	int y;
+//	int width;
+//	int height;
 	int speed;
 
 	boolean up = false;
@@ -14,15 +14,13 @@ public class Rocketship extends GameObject {
 	boolean down = false;
 
 	Rocketship(int x, int y, int width, int height) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		super(x,y,width,height);
 		speed = 5;
 
 	}
 
 	void update() {
+		super.update();
 		if (up) {
 			y -= speed;
 		}

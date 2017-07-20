@@ -16,13 +16,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Rocketship rocket = new Rocketship(250, 700, 50, 50);
 	ObjectManager manager = new ObjectManager();
 
+		
 	void updateMenuState() {
 
 	}
 
 	void updateGameState() {
-		//rocket.update();
+		// rocket.update();
 		manager.update();
+		manager.manageEnemies();
+		manager.checkCollision();
+		
+		if(rocket.isAlive == false){
+			currentState = END_STATE;
+		}
 	}
 
 	void updateEndState() {
@@ -51,6 +58,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.RED);
 		g.setFont(titleFont);
 		g.drawString("GAMEOVER", 110, 400);
+		g.drawString("" +manager.getScore(), 110, 500);
 	}
 
 	// GameObject gameObject;
@@ -122,7 +130,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			rocket.down = true;
 		}
-
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			manager.addObject(new Projectile(rocket.x + (rocket.width/2), rocket.y, 10, 10));
+		}
 	}
 
 	@Override
