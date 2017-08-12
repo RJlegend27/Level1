@@ -2,11 +2,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rocketship extends GameObject {
-//	int x;
-//	int y;
-//	int width;
-//	int height;
+	// int x;
+	// int y;
+	// int width;
+	// int height;
 	int speed;
+	static int rocketx;
 
 	boolean up = false;
 	boolean right = false;
@@ -14,8 +15,9 @@ public class Rocketship extends GameObject {
 	boolean down = false;
 
 	Rocketship(int x, int y, int width, int height) {
-		super(x,y,width,height);
+		super(x, y, width, height);
 		speed = 5;
+		rocketx = x;
 
 	}
 
@@ -27,12 +29,12 @@ public class Rocketship extends GameObject {
 		if (right)
 
 		{
-			x += speed;
+			rocketx += speed;
 		}
 		if (left)
 
 		{
-			x -= speed;
+			rocketx -= speed;
 		}
 		if (down)
 
@@ -44,6 +46,7 @@ public class Rocketship extends GameObject {
 	void draw(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(x, y, width, height);
+		// g.drawImage(GamePanel.rocketImg, x, y, width, height, null);
 
 	}
 }

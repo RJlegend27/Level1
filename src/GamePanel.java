@@ -1,8 +1,14 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -13,10 +19,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
+	public static BufferedImage alienImg;
+	public static BufferedImage rocketImg;
+	public static BufferedImage bulletImg;
+
 	Rocketship rocket = new Rocketship(250, 700, 50, 50);
 	ObjectManager manager = new ObjectManager();
 
-		
 	void updateMenuState() {
 
 	}
@@ -26,9 +35,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.update();
 		manager.manageEnemies();
 		manager.checkCollision();
-		
-		if(rocket.isAlive == false){
+
+		if (rocket.isAlive == false) {
 			currentState = END_STATE;
+			manager.reset();
+			rocket = new Rocketship(250, 700, 50, 50);
+			manager.addObject(this.rocket);
 		}
 	}
 
@@ -58,7 +70,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.RED);
 		g.setFont(titleFont);
 		g.drawString("GAMEOVER", 110, 400);
-		g.drawString("" +manager.getScore(), 110, 500);
+		g.drawString("" + manager.getScore(), 110, 500);
 	}
 
 	// GameObject gameObject;
@@ -94,6 +106,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// gameObject = new GameObject();
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		manager.addObject(rocket);
+		try {
+			alienImg = ImageIO.read(this.getClass().getResourceAsStream("Copy of alien.png"));
+			rocketImg = ImageIO.read(this.getClass().getResourceAsStream("Copy of rocket.png"));
+			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("Copy of bullet.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	void startGame() {
@@ -131,7 +152,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			rocket.down = true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			manager.addObject(new Projectile(rocket.x + (rocket.width/2), rocket.y, 10, 10));
+			manager.addObject(new Projectile(rocket.x + (rocket.width / 2), rocket.y, 10, 10));
 		}
 	}
 

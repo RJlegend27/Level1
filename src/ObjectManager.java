@@ -43,41 +43,43 @@ public class ObjectManager {
 		}
 	}
 
-	 public void manageEnemies(){
-	 if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
-	 addObject(new Aliens(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
-	 enemyTimer = System.currentTimeMillis();
-	 }
+	public void manageEnemies() {
+		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
+			addObject(new Aliens(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
+			addObject(new Alien2(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
+			addObject(new Alien3(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
+			addObject(new Alien4(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
+			enemyTimer = System.currentTimeMillis();
+		}
 	}
 
 	public void checkCollision() {
-	 for (int i = 0; i < objects.size(); i++) {
-	 for (int j = i + 1; j < objects.size(); j++) {
-	 GameObject o1 = objects.get(i);
-	 GameObject o2 = objects.get(j);
-	
-	 if(o1.hitBox.intersects(o2.hitBox)){
-	 if((o1 instanceof Aliens && o2 instanceof Projectile) ||
-	 (o2 instanceof Aliens && o1 instanceof Projectile)){
-	 score++;
-	 System.out.println(score);
-	 o1.isAlive = false;
-	 o2.isAlive = false;
-	 }
-	 else if((o1 instanceof Aliens && o2 instanceof Rocketship) ||
-	 (o2 instanceof Aliens && o1 instanceof Rocketship)){
-	 o1.isAlive = false;
-	 o2.isAlive = false;
-	 }
-	
-	 }
-	 }
-	 }
-	 }
+		for (int i = 0; i < objects.size(); i++) {
+			for (int j = i + 1; j < objects.size(); j++) {
+				GameObject o1 = objects.get(i);
+				GameObject o2 = objects.get(j);
+
+				if (o1.hitBox.intersects(o2.hitBox)) {
+					if ((o1 instanceof Aliens && o2 instanceof Projectile) ||
+							(o2 instanceof Aliens && o1 instanceof Projectile)) {
+						score++;
+						System.out.println(score);
+						o1.isAlive = false;
+						o2.isAlive = false;
+					} else if ((o1 instanceof Aliens && o2 instanceof Rocketship) ||
+							(o2 instanceof Aliens && o1 instanceof Rocketship)) {
+						o1.isAlive = false;
+						o2.isAlive = false;
+					}
+
+				}
+			}
+		}
+	}
 
 	public int getScore() {
 		return score;
-		
+
 	}
 
 	public void setScore(int s) {
