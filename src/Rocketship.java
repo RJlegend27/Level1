@@ -17,7 +17,7 @@ public class Rocketship extends GameObject {
 	Rocketship(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed = 5;
-		rocketx = x;
+		// rocketx = x;
 
 	}
 
@@ -29,12 +29,12 @@ public class Rocketship extends GameObject {
 		if (right)
 
 		{
-			rocketx += speed;
+			x += speed;
 		}
 		if (left)
 
 		{
-			rocketx -= speed;
+			x -= speed;
 		}
 		if (down)
 

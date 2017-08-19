@@ -48,7 +48,7 @@ public class ObjectManager {
 			addObject(new Aliens(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
 			addObject(new Alien2(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
 			addObject(new Alien3(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
-			addObject(new Alien4(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
+			// addObject(new Alien4(new Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
 			enemyTimer = System.currentTimeMillis();
 		}
 	}
